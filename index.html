@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f5">
+  <title>CSV Atelier — Make sense of your data</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="/"><span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 24V8h4v16H5Zm9 0V13h4v11h-4Zm9 0V5h4v19h-4Z"/><circle cx="7" cy="6" r="2"/><circle cx="16" cy="10" r="2"/><circle cx="25" cy="3" r="2"/></svg></span><span>csv<span class="brand-light">atelier</span></span></a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a class="nav-item active" href="#dashboard"><span class="nav-icon">◫</span> Overview</a>
+        <a class="nav-item" href="#results"><span class="nav-icon">▤</span> Data insights</a>
+        <a class="nav-item" href="#upload"><span class="nav-icon">↥</span> New analysis</a>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-note"><span class="note-icon">✳</span><div><strong>Your data stays yours</strong><p>Files are analysed in memory and never saved to a database.</p></div></div>
+      <div class="profile"><div class="avatar">CA</div><div><strong>CSV Atelier</strong><span>Local workspace</span></div><span class="profile-dots">···</span></div>
+    </aside>
+
+    <main id="dashboard" class="main-area">
+      <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <strong>Overview</strong></div><div class="top-actions"><span class="privacy-pill"><i></i> Private session</span><button class="icon-button" id="helpButton" aria-label="How it works" title="How it works">?</button></div></header>
+      <div class="page-content">
+        <div id="fileWarning" class="file-warning" hidden><strong>One quick setup step:</strong> to use uploads and analysis, double-click <b>START HERE.bat</b> in the project folder. It opens the working app for you.</div>
+        <section class="welcome-row"><div><div class="eyebrow"><span class="eyebrow-line"></span> YOUR DATA, MADE CLEAR</div><h1>Good data tells<br>good stories<span class="title-dot">.</span></h1><p class="intro">Drop in a CSV. Get the useful bits back — clear summaries, quick patterns, and a feel for what your data is saying.</p></div><div class="welcome-art" aria-hidden="true"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-dot dot-a"></div><div class="art-dot dot-b"></div><div class="art-dot dot-c"></div><div class="art-center"><span>↗</span></div><div class="art-bar b1"></div><div class="art-bar b2"></div><div class="art-bar b3"></div><div class="art-bar b4"></div><div class="art-bar b5"></div></div></section>
+
+        <section class="upload-card" id="upload" aria-labelledby="uploadTitle"><div class="upload-heading"><div><span class="step-label">01 / START HERE</span><h2 id="uploadTitle">Bring your data in</h2></div><span class="format-tag">CSV FILE <span>·</span> UP TO 8 MB</span></div>
+          <div id="dropZone" class="drop-zone" tabindex="0" role="button" aria-label="Choose a CSV file or drop it here"><div class="upload-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14v5h14v-5"/></svg></div><div class="drop-copy"><strong>Drop your CSV file here</strong><span>or <button id="browseButton" class="text-button" type="button">browse files</button> from your device</span></div><button id="chooseButton" class="primary-button" type="button">Choose a file <span>↗</span></button><input id="fileInput" type="file" accept=".csv,text/csv" hidden></div>
+          <div class="upload-foot"><span><b class="lock-icon">⌑</b> Processed in your browser session. Nothing is stored.</span><a href="/api/sample" download="sample.csv">Try a sample file <span>↗</span></a></div><div id="uploadStatus" class="upload-status" role="status" aria-live="polite"></div>
+        </section>
+
+        <section id="results" class="results-section" hidden><div class="results-heading"><div><span class="step-label">02 / YOUR RESULTS</span><h2>Here's the shape of it</h2><p id="resultFile" class="result-file"></p></div><button id="newAnalysis" class="secondary-button" type="button">↻ <span>New analysis</span></button></div><div id="summaryCards" class="summary-grid"></div><div class="insights-layout"><div class="panel chart-panel"><div class="panel-heading"><div><span class="panel-kicker">NUMERIC DISTRIBUTION</span><h3 id="chartTitle">Explore a column</h3></div><select id="columnSelect" aria-label="Choose a numeric column"></select></div><div id="chartArea" class="chart-area"></div><div class="chart-legend"><span><i></i> Rows in each range</span><span id="chartHint"></span></div></div><div class="panel columns-panel"><div class="panel-heading"><div><span class="panel-kicker">AT A GLANCE</span><h3>Your columns</h3></div><span class="column-count" id="columnCount"></span></div><div id="columnList" class="column-list"></div></div></div><div class="panel preview-panel"><div class="preview-head"><div><span class="panel-kicker">A QUICK LOOK</span><h3>First few rows</h3></div><span class="preview-label">UP TO 8 ROWS</span></div><div id="tableWrap" class="table-wrap"></div></div></section>
+
+        <section class="how-section"><div class="how-heading"><div><span class="step-label">A LITTLE CLARITY, IN THREE STEPS</span><h2>From rows to “aha”</h2></div><span class="how-spark">✳</span></div><div class="steps"><article><span class="step-number">01</span><div class="step-icon lavender">↥</div><h3>Bring your CSV</h3><p>Pick a file from your device or drop it into the workspace.</p></article><article><span class="step-number">02</span><div class="step-icon peach">⌁</div><h3>We find the shape</h3><p>Python checks column types, missing values, ranges, and common values.</p></article><article><span class="step-number">03</span><div class="step-icon mint">↗</div><h3>See what matters</h3><p>Read the summary, spot a pattern, then decide where to look next.</p></article></div></section>
+        <footer><span>Made for curious minds.</span><span>CSV Atelier <i>✳</i> A small data workbench</span></footer>
+      </div>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
