@@ -1,117 +1,183 @@
-# CSV Atelier
+# CSV Atelier — CSV Data Analyser
 
-**A simple, local-first CSV analyser built with Python.** Choose a CSV file in the browser and get a quick summary of its rows, columns, missing values, numeric ranges, common text values, and first few records.
+**An Agile-planned, local-first CSV analysis application built with Python.**
 
-## What the project does
+## 1. Project Overview
 
-CSV Atelier is a small web app for students and beginners who want to understand a dataset before doing deeper analysis. The browser provides the upload and results screens; a Python server reads the CSV and calculates the summaries. It uses no database or accounts.
+CSV Atelier is a lightweight web application designed to help students and beginners understand CSV (Comma-Separated Values) datasets quickly and easily.
 
-### Main features
+Before performing detailed data analysis, users often need to understand a dataset's structure, data types, missing values, numerical ranges, and common values. Examining these details manually can be time-consuming, especially for users who are new to data analysis.
 
-- Upload or drag and drop a CSV file.
-- See the number of rows, columns, numeric fields, and empty cells.
-- Review column types, unique values, and common text values.
-- Explore numeric minimum, maximum, mean, median, and a distribution chart.
-- Preview the first eight rows.
-- Try the app with the included `sample.csv`.
-- Get readable errors for unsupported or oversized files.
+CSV Atelier addresses this problem by providing an interactive interface that automatically analyses an uploaded CSV file and presents its important characteristics in a clear and understandable format.
 
-## Run the app
+The application uses a browser-based interface and a Python server for processing data. It follows a local-first approach, analysing uploaded files in memory without requiring user accounts or a database.
 
-### Easiest way on Windows
+## 2. Problem Statement
 
-1. Install Python 3.9 or newer if it is not already installed: [python.org/downloads](https://www.python.org/downloads/).
-2. Double-click **START HERE.bat**.
-3. The app opens in your browser at [http://127.0.0.1:8000](http://127.0.0.1:8000). Keep the black server window open while using the app; close it when finished.
+Understanding an unfamiliar dataset is an important first step in data analysis. However, beginners may find it difficult to identify missing values, understand column types, calculate descriptive statistics, and recognise patterns in raw CSV data.
 
-### Run it manually
+CSV Atelier aims to simplify this initial exploration process by automatically generating a concise overview of the dataset, helping users understand its structure and identify areas that may require further investigation.
 
-Open PowerShell in this folder and run:
+## 3. Project Objectives
 
-```powershell
-py app.py
-```
+- Develop a simple and accessible interface for CSV data analysis.
+- Automate the calculation of basic dataset statistics.
+- Identify column types, missing values, and unique values.
+- Present numerical distributions and descriptive statistics.
+- Provide a preview of the uploaded data.
+- Display clear errors for invalid or unsupported files.
+- Support local data processing without a database or user accounts.
+- Apply Agile planning principles to organise requirements, prioritise features, track progress, and identify future improvements.
 
-Then open [http://127.0.0.1:8000](http://127.0.0.1:8000). Press **Ctrl+C** in PowerShell to stop the server.
+## 4. Key Features
 
-## Privacy and limits
+- **CSV Upload:** Upload or drag and drop a CSV file for analysis.
+- **Dataset Overview:** Display row count, column count, numeric fields, and empty cells.
+- **Column Analysis:** Identify numeric or text columns and display missing, filled, and unique value counts.
+- **Numerical Statistics:** Calculate minimum, maximum, mean, and median for numeric columns.
+- **Distribution Visualisation:** Display a chart to help users explore numerical distributions.
+- **Data Preview:** Show the first eight records of the dataset.
+- **Common Text Values:** Display frequently occurring text values.
+- **Error Handling:** Provide understandable errors for unsupported or oversized files.
+- **Sample Dataset:** Include an example CSV to demonstrate the application's functionality.
 
-The app binds to your own computer. Uploaded CSV contents are analysed in memory and are not saved to a database or written to a file by the app. The current limits are **8 MB** and **100,000 rows** per file. Numeric summaries recognise plain numbers and common currency or percent symbols; dates and other values are treated as text.
+## 5. Technology Overview
 
-## Agile methodology
+- **Python:** Server-side processing and CSV analysis.
+- **HTML:** Structure of the web interface.
+- **CSS:** Layout and visual styling.
+- **JavaScript:** Browser-side interactions and chart presentation.
+- **CSV:** Input data format.
 
-This section records the project vision, user needs, current work, and likely next steps. It is a lightweight Agile planning snapshot for the current version; priorities can change after feedback from users or the professor.
+The application operates locally and does not require a database for its current functionality.
 
-### Product vision
+## 6. Agile Methodology
 
-Help a student or curious beginner get a quick, understandable first read on a CSV without installing analysis software or sending the data to a third-party service.
+Agile is an approach to software development that emphasises incremental delivery, collaboration, feedback, adaptability, and continuous improvement.
 
-### Target users
+For CSV Atelier, Agile principles are reflected in the organisation of user requirements, prioritisation of features, estimation of work, visual task tracking, and identification of future improvements.
 
-- **Students** who need to understand an unfamiliar dataset before an assignment.
-- **Beginners** who want plain-language summaries instead of a spreadsheet full of unexplained values.
-- **Privacy-conscious users** who prefer a small local tool without accounts or a database.
+The project documents a lightweight, Kanban-based workflow rather than a formal Scrum implementation.
 
-### User stories and acceptance criteria
+### 6.1 Product Vision
 
-| ID | User story | Acceptance criteria |
-| --- | --- | --- |
-| US1 | As a student, I want to upload a CSV and see its size so I can understand the dataset quickly. | A valid CSV shows its row and column counts; an invalid file shows a clear error. |
-| US2 | As a beginner, I want to see each column's type, missing cells, and unique values so I know what to inspect. | Each column is labelled as numeric or text and includes filled, missing, and unique counts. |
-| US3 | As a user exploring numbers, I want basic statistics and a chart so I can spot the range and distribution. | Numeric columns show minimum, maximum, mean, median, and a distribution chart. |
-| US4 | As a privacy-conscious user, I want the file handled locally without a database. | The app runs on localhost and analyses the upload in memory. |
-| US5 | As a first-time visitor, I want a sample file and simple run instructions. | The project includes `sample.csv` and a one-click Windows launcher. |
+To provide students and beginners with a simple, understandable, and privacy-conscious tool for exploring CSV datasets before performing deeper analysis.
 
-### MVP backlog
+### 6.2 Target Users and Stakeholders
 
-Priority uses **Must**, **Should**, and **Could** to make scope visible. Estimates are relative effort points, not hours.
+- **Students:** Need to understand datasets for academic assignments and projects.
+- **Beginners:** Need an accessible introduction to dataset exploration.
+- **Privacy-conscious users:** Prefer a local tool without accounts or a database.
+- **Developer:** Responsible for implementing, testing, and maintaining the application.
+- **Project evaluator:** Assesses the project's functionality, objectives, and development approach.
 
-| ID | Backlog item | Priority | Estimate | Status |
-| --- | --- | --- | ---: | --- |
-| A1 | Create a clear, responsive workspace and upload area | Must | 3 | Done |
-| A2 | Parse CSV files in Python and return useful errors | Must | 5 | Done |
-| A3 | Summarise rows, columns, types, missing cells, and unique values | Must | 5 | Done |
-| A4 | Show numeric statistics and a distribution chart | Must | 5 | Done |
-| A5 | Preview rows and show frequent text values | Should | 3 | Done |
-| A6 | Add a sample CSV and beginner-friendly setup instructions | Should | 2 | Done |
-| A7 | Document the project plan and Kanban workflow | Must | 2 | Done |
-| A8 | Recognise dates and summarise date ranges | Could | 3 | Backlog |
-| A9 | Let users export a compact analysis report | Could | 5 | Backlog |
-| A10 | Improve analysis for files larger than the current limits | Could | 5 | Backlog |
+### 6.3 User Stories and Acceptance Criteria
 
-### Kanban board
+| ID | User Story | Acceptance Criteria |
+|---|---|---|
+| US1 | As a student, I want to upload a CSV and see its size so that I can understand the dataset quickly. | Valid files display row and column counts; invalid files produce a clear error. |
+| US2 | As a beginner, I want to inspect column types, missing cells, and unique values so that I know what to investigate. | Each column displays its type and relevant counts. |
+| US3 | As a user exploring numerical data, I want descriptive statistics and a distribution chart so that I can understand numerical values. | Numeric columns display minimum, maximum, mean, median, and a distribution chart. |
+| US4 | As a privacy-conscious user, I want my file analysed locally without a database so that I can use the tool without a cloud upload. | The application runs on localhost and processes uploaded data in memory. |
+| US5 | As a first-time user, I want an example dataset so that I can explore the application easily. | A sample CSV is included with the project. |
 
-Move each item from left to right as work progresses. Keep **In progress** to one item at a time (WIP limit: 1) so unfinished work stays visible and manageable.
+### 6.4 Minimum Viable Product (MVP)
 
-| Backlog | Ready | In progress | Review / verify | Done |
-| --- | --- | --- | --- | --- |
-| A8 Date summaries | A9 Export a report | — | — | A1 Upload workspace |
-| A10 Larger-file handling | — | — | — | A2 Python CSV parsing and errors |
-| — | — | — | — | A3 Column summaries |
-| — | — | — | — | A4 Numeric statistics and chart |
-| — | — | — | — | A5 Preview and common text values |
-| — | — | — | — | A6 Sample file and run instructions |
-| — | — | — | — | A7 Agile planning notes |
+The MVP focuses on the core functionality required to make CSV Atelier useful:
 
-### Definition of Done
+- CSV upload and parsing.
+- Dataset and column summaries.
+- Missing-value and unique-value analysis.
+- Numerical statistics and visualisation.
+- Data preview and understandable error handling.
 
-An item can move to **Done** when:
+Additional features are considered separately so that development effort remains focused on the primary user needs.
 
-- Its acceptance criteria are met in the user-facing app or documentation.
-- The result or error is understandable to a beginner.
-- It fits the project's local-first, no-database scope, or the scope change is documented.
-- The README and Agile board reflect the delivered change.
+### 6.5 Product Backlog and Prioritisation
 
-### Review and next iteration
+The product backlog records features and improvements that may be implemented. Items are prioritised according to their importance to the product and estimated using relative effort points.
 
-At a review, demonstrate uploading `sample.csv`, interpreting the summary, and handling an invalid or oversized file. Ask users what was clear, what was confusing, and which follow-up would help most. Use that feedback to reorder the backlog before starting the next iteration.
+The project uses a lightweight MoSCoW-style priority classification.
 
-## Project files
+| ID | Backlog Item | Priority | Estimate | Status |
+|---|---|---|---:|---|
+| A1 | Create the upload workspace and interface | Must | 3 | Done |
+| A2 | Implement CSV parsing and error handling | Must | 5 | Done |
+| A3 | Generate column and dataset summaries | Must | 5 | Done |
+| A4 | Add numerical statistics and distribution charts | Must | 5 | Done |
+| A5 | Add row previews and common text values | Should | 3 | Done |
+| A6 | Include a sample dataset and setup guidance | Should | 2 | Done |
+| A7 | Document Agile planning and the Kanban workflow | Must | 2 | Done |
+| A8 | Add date recognition and date-range summaries | Could | 3 | Backlog |
+| A9 | Add analysis report export | Could | 5 | Backlog |
+| A10 | Improve handling of larger files | Could | 5 | Backlog |
 
-| File | Purpose |
-| --- | --- |
-| `app.py` | Local Python web server and CSV analysis logic |
-| `index.html`, `styles.css`, `app.js` | Browser interface and charts |
-| `sample.csv` | Example data for a first run |
-| `START HERE.bat` | One-click Windows launcher |
-| `AGILE.md` | Expanded vision, backlog, and board notes |
+*Estimates represent relative effort, not hours or days. The backlog may be reprioritised as requirements and feedback evolve.*
+
+### 6.6 Kanban Workflow
+
+Kanban is used to visualise the state of project work and make progress easier to track.
+
+| Backlog | Ready | In Progress | Review / Verify | Done |
+|---|---|---|---|---|
+| A8 — Date summaries | A9 — Report export | None | None | A1–A7 |
+| A10 — Larger-file handling | | | | |
+
+The workflow follows these stages:
+
+1. **Backlog:** Work identified for possible future development.
+2. **Ready:** Work sufficiently defined to begin.
+3. **In Progress:** Work currently being implemented.
+4. **Review / Verify:** Work being checked against its requirements.
+5. **Done:** Work that satisfies the Definition of Done.
+
+A Work in Progress (WIP) limit of one item is adopted for the In Progress column to reduce task switching and keep unfinished work manageable.
+
+### 6.7 Definition of Done
+
+A backlog item is considered complete when:
+
+- Its acceptance criteria are satisfied.
+- Its output or error messages are understandable to the intended users.
+- It complies with the project's local-first scope, or any scope change is documented.
+- Relevant project documentation and the Agile board reflect the delivered change.
+
+### 6.8 Review and Continuous Improvement
+
+During a project review, the application can be demonstrated using the sample dataset, numerical analysis, and invalid or oversized files.
+
+Feedback can be collected to identify confusing results, missing functionality, or usability improvements. These observations can then be added to or reprioritised within the backlog.
+
+The next development cycle may focus on date summaries, report export, or improved large-file handling, depending on user needs and available resources.
+
+## 7. Future Scope
+
+Potential future enhancements include:
+
+- Date recognition and date-range analysis.
+- Exporting analysis results as a report.
+- Improved processing of larger CSV files.
+- Additional visualisations and data-quality checks.
+- Enhanced feedback and usability based on user evaluation.
+
+These features are proposed extensions and are not part of the currently completed functionality.
+
+## 8. Project Structure
+
+| File | Responsibility |
+|---|---|
+| `app.py` | Python server and CSV analysis logic |
+| `index.html` | Browser interface structure |
+| `styles.css` | Interface styling |
+| `app.js` | Client-side interactions and charts |
+| `sample.csv` | Example dataset |
+| `START HERE.bat` | Windows launcher |
+| `AGILE.md` | Expanded Agile planning and workflow documentation |
+
+## 9. Conclusion
+
+CSV Atelier demonstrates how a small software application can simplify an everyday data-analysis task through automation and an accessible interface.
+
+Alongside its technical functionality, the project documents Agile concepts such as product vision, user stories, acceptance criteria, MVP scope, backlog prioritisation, relative estimation, Kanban workflow, WIP limits, Definition of Done, and continuous improvement.
+
+This combination provides a practical example of organising software requirements and development work while keeping the product focused on its intended users.
