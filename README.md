@@ -115,56 +115,43 @@ The project uses a lightweight MoSCoW-style priority classification.
 *Estimates represent relative effort, not hours or days. The backlog may be reprioritised as requirements and feedback evolve.*
 
 ### 6.6 Kanban Workflow
+### 6.6 Kanban Workflow
+
 Kanban is used to visualise the status of work, manage work in progress, and make development progress easier to track.
 
 The project uses the following five-stage workflow:
 
-Backlog
+| **Backlog** | **Ready** | **In Progress** | **Review / Verify** | **Done** |
+|---|---|---|---|---|
+| A8 — Date summaries (Could) | None | None | None | A1–A7 — Completed items |
+| A9 — Report export (Could) | | | | |
+| A10 — Larger-file handling (Could) | | | | |
 
-Ready
+**Workflow stages:**
 
-In Progress
-
-Review / Verify
-
-Done
-
-A8 — Date summaries (Could)
-
-None
-
-None
-
-None
-
-A1–A7 — Completed items
-
-A9 — Report export (Could)
-
-
-
-
-
-
-
-
-
-A10 — Larger-file handling (Could)
-
-
-
-Illustrative refinement of your README, not evidence of live task activity. Update the board to reflect the actual state of your code and tests.
-
-The workflow follows these stages:
-
-1. **Backlog:** Work identified for possible future development.
-2. **Ready:** Work sufficiently defined to begin.
-3. **In Progress:** Work currently being implemented.
-4. **Review / Verify:** Work being checked against its requirements.
-5. **Done:** Work that satisfies the Definition of Done.
+1. **Backlog:** Features and improvements identified for possible future development.
+2. **Ready:** Tasks that are sufficiently defined and prioritised to begin.
+3. **In Progress:** Tasks currently being implemented.
+4. **Review / Verify:** Implemented tasks being checked against their acceptance criteria.
+5. **Done:** Tasks that satisfy the project's Definition of Done.
 
 A Work in Progress (WIP) limit of one item is adopted for the In Progress column to reduce task switching and keep unfinished work manageable.
 
+#### Kanban Workflow Diagram
+
+The following diagram illustrates how tasks move through the project's workflow.
+
+```mermaid
+flowchart TD
+    A[Backlog] --> B[Ready]
+    B --> C[In Progress]
+    C --> D[Review / Verify]
+    D -->|Criteria satisfied| E[Done]
+    D -->|Changes required| C
+    style E fill:#d4edda,stroke:#287d3c,color:#155724
+```
+
+The diagram shows the normal progression of work. Tasks that fail verification return for further implementation before they can be considered complete.
 ### 6.7 Definition of Done
 
 A backlog item is considered complete when:
