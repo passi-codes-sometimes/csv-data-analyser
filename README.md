@@ -193,6 +193,42 @@ These features are proposed extensions and are not part of the currently complet
 | `START HERE.bat` | Windows launcher |
 | `AGILE.md` | Expanded Agile planning and workflow documentation |
 
+
+### 6.7 Burndown Chart
+
+A burndown chart visualises the amount of work remaining over time. The horizontal axis represents time, while the vertical axis represents remaining effort.
+
+As tasks are completed, the remaining effort should generally decrease. The chart helps track progress and identify potential delays.
+
+The following chart uses illustrative values to demonstrate the concept. It is not historical project data.
+
+```mermaid
+xychart-beta
+    title "Illustrative Burndown Chart"
+    x-axis ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5"]
+    y-axis "Remaining effort points" 0 --> 40
+    line [38, 30, 24, 12, 0]
+```
+### 6.8 Burnup Chart
+
+A burnup chart visualises the amount of work completed over time. The horizontal axis represents time, while the vertical axis represents completed effort.
+
+As tasks are completed, the amount of completed work generally increases. A separate total-scope line can help identify changes in the amount of planned work.
+
+The following chart uses illustrative values to demonstrate the concept. It is not historical project data.
+
+```mermaid
+xychart-beta
+    title "Illustrative Burnup Chart"
+    x-axis ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5"]
+    y-axis "Completed effort points" 0 --> 40
+    line [0, 8, 14, 26, 38]
+```
+
+For the actual project, record completed effort at regular intervals. If the project scope changes, track the revised total scope separately so that completed work can be compared with the overall plan.
+
+For the actual project, the chart should be updated using dated progress records and the estimated effort of completed tasks.
+
 ## 9. Conclusion
 
 CSV Atelier demonstrates how a small software application can simplify an everyday data-analysis task through automation and an accessible interface.
