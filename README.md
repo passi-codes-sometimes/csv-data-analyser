@@ -115,50 +115,41 @@ The project uses a lightweight MoSCoW-style priority classification.
 *Estimates represent relative effort, not hours or days. The backlog may be reprioritised as requirements and feedback evolve.*
 
 ### 6.6 Kanban Workflow
-CSV Atelier — Kanban Board
-Example board
+Kanban is used to visualise the status of work, manage work in progress, and make development progress easier to track.
 
-Workflow: To be prioritised → Ready → In Progress → Review / Verify → Done
-📋 Backlog
-Not yet scheduled
+The project uses the following five-stage workflow:
 
-A8 · Date analysis
-Could
-Recognise date columns and calculate date ranges.
+Backlog
 
-A9 · Report export
-Could
-Export analysis results as a report.
+Ready
 
-A10 · Large-file handling
-Could
+In Progress
 
+Review / Verify
 
-🟦 Ready
-Defined, awaiting work
+Done
 
-A9.1 · Export requirements
-Define report contents and acceptance criteria before implementation.
+A8 — Date summaries (Could)
 
+None
 
-🔨 In Progress
-WIP limit: 1
+None
 
-No active task
-The current README describes no unfinished task in this column.
+None
+
+A1–A7 — Completed items
+
+A9 — Report export (Could)
 
 
-🔍 Review / Verify
-Testing and acceptance
-
-No task awaiting review
-Move a task here when implementation is complete but verification remains.
 
 
-✅ Done
-A1–A7
 
-Upload interface · CSV parsing and error handling · Dataset and column summaries · Numerical statistics and charts · Data preview and common text values · Sample dataset and setup guidance · Agile documentation
+
+
+
+
+A10 — Larger-file handling (Could)
 
 
 
